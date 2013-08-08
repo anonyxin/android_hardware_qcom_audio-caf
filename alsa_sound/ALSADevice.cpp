@@ -1027,6 +1027,7 @@ ALOGD("switchDevice: mCurTxUCMDevivce %s mCurRxDevDevice %s", mCurTxUCMDevice, m
                     setEcrxDevice(ec_rx_dev);
                     free(ec_rx_dev);
                 }
+                free(ec_dev);
             }
         } else {
             ALOGE("acdb_loader_get_ecrx_device is NULL");
