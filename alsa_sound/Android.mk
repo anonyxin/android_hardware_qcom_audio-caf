@@ -101,6 +101,10 @@ ifeq ($(BOARD_HAVE_AUDIENCE_A2220),true)
     common_cflags += -DUSE_A2220
 endif
 
+ifeq ($(BOARD_HAVE_AUDIENCE_ES310),true)
+    common_cflags += -DUSE_ES310
+endif
+
 ifeq ($(BOARD_HAVE_NEW_QCOM_CSDCLIENT),true)
     common_cflags += -DNEW_CSDCLIENT
 endif
