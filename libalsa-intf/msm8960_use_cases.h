@@ -331,6 +331,7 @@ static card_mapping_t card_mapping_list[] = {
 #define SND_USE_CASE_DEV_VOIP_EARPIECE "Handset VOIP VoiceProc"
 #define SND_USE_CASE_DEV_VOIP_HEADPHONE "Headset VOIP VoiceProc"
 #define SND_USE_CASE_DEV_VOIP_SPEAKER "Handfree VOIP VoiceProc"
+#define SND_USE_CASE_DEV_VOC_HEADSET_MIC "HeadsetMic Voice TX"
 #endif
 
 #define SND_USE_CASE_MOD_PLAY_FM         "Play FM"

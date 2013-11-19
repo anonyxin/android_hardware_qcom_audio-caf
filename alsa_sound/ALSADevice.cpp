@@ -2304,12 +2304,12 @@ char* ALSADevice::getUCMDevice(uint32_t devices, int input, char *rxDevice)
 #endif
                 else {
 #ifdef USE_ES310
-					if (mCallMode == AudioSystem::MODE_IN_CALL) {
-						return strdup(SND_USE_CASE_DEV_VOC_LINE); /* VOICE BUILTIN-MIC TX */
-					}
-					else {
-						return strdup(SND_USE_CASE_DEV_LINE); /* BUILTIN-MIC TX */
-					}
+                    if (mCallMode == AudioSystem::MODE_IN_CALL) {
+                        return strdup(SND_USE_CASE_DEV_VOC_LINE); /* VOICE BUILTIN-MIC TX */
+                    }
+                    else {
+                        return strdup(SND_USE_CASE_DEV_LINE); /* BUILTIN-MIC TX */
+                    }
 #endif
                     if ((rxDevice != NULL) &&
                         !strncmp(rxDevice, SND_USE_CASE_DEV_ANC_HANDSET,
@@ -2335,6 +2335,15 @@ char* ALSADevice::getUCMDevice(uint32_t devices, int input, char *rxDevice)
             if (mInputSource == AUDIO_SOURCE_VOICE_RECOGNITION) {
                 return strdup(SND_USE_CASE_DEV_VOICE_RECOGNITION_HEADSET);
             }
+#endif
+#ifdef USE_ES310
+            if (mCallMode == AUDIO_MODE_IN_CALL ||
+                mCallMode == AUDIO_MODE_IN_COMMUNICATION)
+            {
+                ALOGV("set HeadsetMic Voice TX");
+                return strdup(SND_USE_CASE_DEV_VOC_HEADSET_MIC);
+            }
+            ALOGV("set HeadsetMic TX device");
 #endif
             return strdup(SND_USE_CASE_DEV_HEADSET); /* HEADSET TX */
 #ifdef QCOM_ANC_HEADSET_ENABLED
